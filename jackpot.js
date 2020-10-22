@@ -3,7 +3,6 @@
  *   @version 0.0.3
  *   @summary Slot Machine
  */
-// To Do: add up money put into machine
 
 "use strict";
 const PROMPT = require('readline-sync');
@@ -13,6 +12,7 @@ let cycleCount;
 let images = ['Cherries', 'Oranges', 'Plums', 'Bells', 'Melons', 'Bars'];
 
 function main() {
+    winnings = 0;
     totalBets = 0;
     totalWinnings = 0;
     cycleCount = 1;
@@ -58,29 +58,32 @@ function randomImages() {
     for (let i = 0; i < imageTrio.length; i++) {
         console.log('       ' + imageTrio[i]);
     }
-    switch (imageTrio) {
-        case imageTrio[0] === imageTrio[1] && imageTrio[1] === imageTrio[2]:
+    for (let i = 0; i < imageTrio.length; i++) {
+        if (imageTrio[0] === imageTrio[1] && imageTrio[1] === imageTrio[2]) {
+            winnings = funds * 3;
             console.log('\nTwo matches, you have won $' + (funds * 3) + ' 3x\'s the amount entered!!!');
             sequencer();
             break;
-        case imageTrio[0] === imageTrio[1]:
+        } else if (imageTrio[0] === imageTrio[1]) {
             winnings = funds * 2;
             console.log('\nTwo matches, you have won $' + (funds * 2) + ' 2x\'s the amount entered!!!');
             sequencer();
             break;
-        case imageTrio[0] === imageTrio[2]:
+        } else if (imageTrio[0] === imageTrio[2]) {
             winnings = funds * 2;
             console.log('\nTwo matches, you have won $' + (funds * 2) + ' 2x\'s the amount entered!!!');
             sequencer();
             break;
-        case imageTrio[1] === imageTrio[2]:
+        } else if (imageTrio[1] === imageTrio[2]) {
             winnings = funds * 2;
             console.log('\nTwo matches, you have won $' + (funds * 2) + ' 2x\'s the amount entered!!!');
             sequencer();
             break;
-        default:
+        } else {
             console.log('\nNo matches, you have won $0!!!');
             sequencer();
+            break;
+        }
     }
 }
 
@@ -104,9 +107,12 @@ function sequencer() {
         endGame();
     }
 }
-// For whatever reason, when this runs it occasionally does not calculate totalWinnings
-// and returns NaN, but the calculations are always right when I check with print statements...
-// It usually occurs if you play less than 5 games.
+
+function endGame() {
+    console.log('\n             GAME ENDED');
+        console.log(`           ${cycleCount} GAMES PLAYED`);
+    console.log(`Amount entered: $${totalBets}   Amount won: $${totalWinnings}`);
+}
 function endGame() {
     console.log('\n             GAME ENDED');
         console.log(`           ${cycleCount} GAMES PLAYED`);
