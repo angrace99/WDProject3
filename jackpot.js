@@ -1,6 +1,6 @@
 /**
  *   @author Withey, Anna (witheya@student.ncmich.edu)
- *   @version 0.0.1
+ *   @version 0.0.3
  *   @summary Slot Machine
  */
 // To Do: add up money put into machine
