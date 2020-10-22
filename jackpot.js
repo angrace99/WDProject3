@@ -58,32 +58,29 @@ function randomImages() {
     for (let i = 0; i < imageTrio.length; i++) {
         console.log('       ' + imageTrio[i]);
     }
-    for (let i = 0; i < imageTrio.length; i++) {
-        if (imageTrio[0] === imageTrio[1] && imageTrio[1] === imageTrio[2]) {
-            winnings = funds * 3;
+    switch (imageTrio) {
+        case imageTrio[0] === imageTrio[1] && imageTrio[1] === imageTrio[2]:
             console.log('\nTwo matches, you have won $' + (funds * 3) + ' 3x\'s the amount entered!!!');
             sequencer();
             break;
-        } else if (imageTrio[0] === imageTrio[1]) {
+        case imageTrio[0] === imageTrio[1]:
             winnings = funds * 2;
             console.log('\nTwo matches, you have won $' + (funds * 2) + ' 2x\'s the amount entered!!!');
             sequencer();
             break;
-        } else if (imageTrio[0] === imageTrio[2]) {
+        case imageTrio[0] === imageTrio[2]:
             winnings = funds * 2;
             console.log('\nTwo matches, you have won $' + (funds * 2) + ' 2x\'s the amount entered!!!');
             sequencer();
             break;
-        } else if (imageTrio[1] === imageTrio[2]) {
+        case imageTrio[1] === imageTrio[2]:
             winnings = funds * 2;
             console.log('\nTwo matches, you have won $' + (funds * 2) + ' 2x\'s the amount entered!!!');
             sequencer();
             break;
-        } else {
+        default:
             console.log('\nNo matches, you have won $0!!!');
             sequencer();
-            break;
-        }
     }
 }
 
