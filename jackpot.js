@@ -109,6 +109,7 @@ function sequencer() {
 }
 // For whatever reason, when this runs it occasionally does not calculate totalWinnings
 // and returns NaN, but the calculations are always right when I check with print statements...
+// It usually occurs if you play less than 5 games.
 function endGame() {
     console.log('\n             GAME ENDED');
         console.log(`           ${cycleCount} GAMES PLAYED`);
